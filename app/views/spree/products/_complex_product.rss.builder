@@ -8,7 +8,7 @@ unless product.property("g:description").present?
   xml.tag!("g:description", product.meta_description)
 end
 
-xml.tag!("g:link", spree.product_url(product) + "?variant=" + variant.id.to_s)
+xml.tag!("g:link", "#{current_store.frontend_url}/products/#{product.slug}" + "?variant=" + variant.id.to_s)
 xml.tag!("g:image_link", structured_images(variant))
 xml.tag!("g:availability", variant.in_stock? ? "in stock" : "out of stock")
 
